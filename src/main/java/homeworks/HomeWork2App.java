@@ -2,27 +2,17 @@ package homeworks;
 
 public class HomeWork2App {
     public static void main(String[] args) {
-        boolean task1 = checkSum(5, 6);
-        System.out.println(task1);
-        System.out.println();
+        System.out.println(checkSum(5, 6));
 
         isPositive(5);
-        System.out.println();
 
-        boolean task3 = checkNegative(-5);
-        System.out.println(task3);
-        System.out.println();
+        System.out.println(checkNegative(-5));
 
         printString("Hello", 5);
-        System.out.println();
     }
 
     public static boolean checkSum(int a, int b) {
-        if (a + b >= 10 && a + b <= 20) {
-            return true;
-        } else {
-            return false;
-        }
+        return a + b >= 10 && a + b <= 20;
     }
 
     public static void isPositive(int a) {
@@ -34,11 +24,7 @@ public class HomeWork2App {
     }
 
     public static boolean checkNegative(int a) {
-        if (a < 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return a < 0;
     }
 
     public static void printString(String s, int a) {
