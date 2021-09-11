@@ -1,6 +1,7 @@
 package lesson3;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 public class Box<T extends Fruit> {
     private ArrayList<T> fruitList = new ArrayList<>();
@@ -24,23 +25,14 @@ public class Box<T extends Fruit> {
     public void pourOver(Box<T> targetBox) {
         if (fruitList.isEmpty()) {
             System.out.println("Current box is empty");
-        } else if (targetBox.getFruitList().isEmpty()) {
+        } else {
             targetBox.getFruitList().addAll(fruitList);
             fruitList.clear();
-        } else {
-            Class<? extends Fruit> currentFruitClass = fruitList.get(0).getClass();
-            Class<? extends Fruit> targetFruitClass = targetBox.getFruitList().get(0).getClass();
-            if (currentFruitClass == targetFruitClass) {
-                targetBox.getFruitList().addAll(fruitList);
-                fruitList.clear();
-            } else {
-                System.out.println("Can't pour over boxes of different fruit types");
-            }
         }
     }
 
-    public boolean compare(Box<T> box) {
-       return box.getWeight() == this.getWeight();
+    public boolean compare(Box<?> box) {
+        return box.getWeight() == this.getWeight();
     }
 
     @Override
